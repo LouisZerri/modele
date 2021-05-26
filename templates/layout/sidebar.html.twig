@@ -1,0 +1,23 @@
+{% block body %}
+
+<div class="sidebar">   
+    <div class="mb-5" style="height: 100px;"></div>
+    <p class="text-center welcome"><i class="fa fa-user"></i>&nbsp;&nbsp;{{ app.user.firstname }} {{ app.user.lastname }}</p>
+    <a href="{{ path('dashboard') }}">Tableau de bord&nbsp;&nbsp;<i class="fa fa-tachometer"></i></a>
+    <a href="{{ path('modele_femme') }}">Modèles femmes&nbsp;&nbsp;<i class="fa fa-female"></i></a>
+    <a href="{{ path('modele_homme') }}">Modèles hommes&nbsp;&nbsp;<i class="fa fa-male"></i></a>
+    {% if is_granted('ROLE_ADMIN_GOLD') %}
+        <a href="{{ path('team') }}">Team&nbsp;&nbsp;<i class="fa fa-steam"></i></a>
+    {% else %}
+        <a href="{{ path('profil') }}">Mon profil&nbsp;&nbsp;<i class="fa fa-id-card-o" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {% if is_granted('ROLE_ADMIN_GOLD') %}
+        <a href="#">Paramètres&nbsp;&nbsp;<i class="fa fa-cog" aria-hidden="true"></i></a>
+    {% endif %}
+    <a href="{{ path('security_logout') }}">Déconnexion&nbsp;&nbsp;<i class="fa fa-sign-out"></i></a>
+</div>
+
+
+
+{% endblock %}

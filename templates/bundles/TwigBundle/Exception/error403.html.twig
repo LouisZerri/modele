@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Page non trouvée {% endblock %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+    <div class="myContainer">
+        <h1>Accès non autorisé</h1>
+        <p>Vous n'avez pas le droit d'accéder à cette page</p>
+    </div>
+
+
+{% endblock %}

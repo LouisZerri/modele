@@ -1,0 +1,35 @@
+security:
+    role_hierarchy:
+        ROLE_ADMIN_GOLD: [ROLE_ADMIN_GOLD, ROLE_ADMIN_SILVER, ROLE_ADMIN_BRONZE]
+        ROLE_ADMIN_SILVER: [ROLE_ADMIN_SILVER, ROLE_ADMIN_BRONZE]
+        ROLE_ADMIN_BRONZE: [ROLE_ADMIN_BRONZE]
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
+    providers:
+        from_database:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            logout:
+                path: security_logout
+                target: /
+            form_login:
+                check_path: security_login
+                failure_path: /
+                default_target_path: dashboard
+
+        # - { path: ^/profile, roles: ROLE_USER }
+    
+    access_control:
+        - { path: ^/dashboard/team, roles: ROLE_ADMIN_GOLD }
+        - { path: ^/team/utilisateur/*, roles: ROLE_ADMIN_GOLD }
+        - { path: ^/mon-profil, roles: ['ROLE_ADMIN_SILVER', 'ROLE_ADMIN_BRONZE']}
+        - { path: ^/mon-profil/editer, roles: ['ROLE_ADMIN_SILVER', 'ROLE_ADMIN_BRONZE']}

@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+    <div class="container-add-modele">
+        <h1 class="mb-5">Ajouter un nouveau modèle féminin</h1>
+        {{ form_start(form) }}
+        <h3>Informations personnelles</h3>
+        <div class="form-row align-items-end">
+            <div class="col">
+                {{ form_row(form.title) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.firstname) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.lastname) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.date_of_birth) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.phone_number) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.email) }}
+            </div>
+        </div>
+        <div class="form-row align-items-end">
+            <div class="col">
+                {{ form_row(form.street) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.zip_code) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.city) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.country) }}
+            </div>
+        </div>
+        <h3 class="mt-4">Mensurations</h3>
+        <div class="form-row align-items-end">
+            <div class="col">
+                {{ form_row(form.size) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.chest) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.hips) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.waist_size) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.clothing_size) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.shoes) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.hairs) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.eyes) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.face) }}
+            </div>
+        </div>
+        <div class="form-row align-items-end">
+            <div class="col-md-2">
+                {{ form_row(form.tatoos) }}
+            </div>
+            <div class="col-md-2">
+                {{ form_row(form.piercing) }}
+            </div>
+        </div>
+        <h3 class="mt-4">Informations complémentaires</h3>
+        <div class="form-row align-items-end">
+            <div class="col">
+                {{ form_row(form.native_language) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.second_language) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.third_language) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.fourth_language) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.fifth_language) }}
+            </div>
+        </div>
+        <div class="form-row align-items-end">
+            <div class="col">
+                {{ form_row(form.comments) }}
+                <h3 class="mt-4">Images du modèle</h3>
+                {{ form_row(form.imageFile) }}
+                {{ form_row(form.pictureFiles )}}
+            </div>
+        </div>
+            
+        <div class="col">
+            <div class="form-group">
+                <button class="btn btn-primary button_modele">Ajouter le modèle</button>
+            </div>
+        </div>
+
+        <a href="{{ path('modele_femme') }}" role="button" class="btn btn-primary button_modele_delete">Annuler</a>
+
+        {{ form_end(form) }}
+    </div>
+    
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+
+    
+    <div class="myContainer">
+
+        {% include 'notifications/notification.html.twig' %}
+
+
+        <h2 class="title_women">Modèles hommes</h2>
+
+            {{ form_start(form)}}
+                <div class="mr-5" style="float:left">{{ form_row(form.firstname) }}</div>
+                <div class="mr-5" style="float:left">{{ form_row(form.lastname) }}</div>
+                <div class="mr-5" style="float:left">{{ form_row(form.dateOfBirth) }}</div>
+                <div class="mr-5" style="float:left">{{ form_row(form.clothingSize) }}</div>
+                <div class="mr-5" style="float:left">{{ form_row(form.size) }}</div>
+                <div class="mr-5" style="float:left">{{ form_row(form.hairs) }}</div>
+                <div class="mr-5" style="float:left">{{ form_row(form.eyes) }}</div>
+                <div class="mr-5" style="float:left"><button class="btn btn-primary button_modele"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Rechercher</button></div>
+            {{ form_end(form) }}
+
+        <table class="table">
+            <thead class="table_men">
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date de naissance</th>
+                    <th scope="col">Taille confection</th>
+                    <th scope="col">Taille en cm</th>
+                    <th scope="col">Couleur des cheveux</th>
+                    <th scope="col">Couleur des yeux</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for man in men %}
+                     <tr>
+                        <th scope="row">{{ man.id }}</th>
+                        <td>{{ man.title }}</td>
+                        <td>{{ man.firstname }}</td>
+                        <td>{{ man.lastname }}</td>
+                        <td>{{ man.dateOfBirth }}</td>
+                        <td>{{ man.clothingSize }}</td>
+                        <td>{{ man.size }}</td>
+                        <td>{{ man.hairs }}</td>
+                        <td>{{ man.eyes }}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    {% if user.roles == ['ROLE_ADMIN_GOLD'] or user.roles == ['ROLE_ADMIN_SILVER'] %}
+                                        <a class="badge badge-warning" style="color:white" href="{{ path('edit_modele_homme', {id : man.id}) }}"><i class="fa fa-pencil"></i></a>
+                                    {% else %}
+                                         <button class="badge badge-warning" style="color:white" disabled><i class="fa fa-pencil"></i></button>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    {% if user.roles == ['ROLE_ADMIN_GOLD'] or user.roles == ['ROLE_ADMIN_SILVER'] %}
+                                        <form id="my_form" method="POST" action="{{ path('delete_modele_homme', {id: man.id }) }}" onsubmit="return confirm('Voulez-vous supprimer les données de ce modèle ?')">
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ man.id) }}" />
+                                            <button class="badge badge-danger" style="color:white"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                    {% else %}
+                                         <button class="badge badge-danger" style="color:white" disabled><i class="fa fa-trash"></i></button>
+                                    {% endif %}
+                                </div>
+                            </div>  
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col">
+                <div class="pagination">
+                    {{ knp_pagination_render(men) }}
+                </div> 
+            </div>
+            <div class="col">
+                {% if user.roles == ['ROLE_ADMIN_GOLD'] or user.roles == ['ROLE_ADMIN_SILVER'] %}
+                    <a class="btn btn-primary button_modele" href="{{ path('ajout_modele_homme') }}" role="button">Ajouter un nouveau modèle</a>
+                {% endif %}
+            </div>
+        </div>
+
+        
+    
+    </div>
+
+{% endblock %}

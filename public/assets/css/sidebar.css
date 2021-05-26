@@ -1,0 +1,44 @@
+body{
+    overflow-x: hidden;
+}
+
+.sidebar{
+    position: fixed;
+    background-color: #666666;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 250px;
+    transform: translateX(0);
+    transition: transform 0.3s;
+}
+
+.sidebar a{
+    text-align: center;
+    display: block;
+    height: 66px;
+    margin-top: 30px;
+    line-height: 66px;
+    color: white;
+}
+
+.sidebar a:focus,
+.sidebar a:hover{
+    text-decoration: none;
+    background-color: #8C8C8C;
+    color: white;
+}
+
+
+
+.has-sidebar .sidebar{
+    transform: translatex(-200px);
+}
+
+.welcome
+{
+    margin-bottom: 50px;
+    color: white;
+    font-size: 25px;
+}

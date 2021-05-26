@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+    <div class="myContainer">
+        <h2>Tableau de bord</h2>
+
+        <div class="row dashboard">
+            <div class="col col-femme ml-5">
+                <p class="text-center">Nombre de modèles femmes</p>
+                <p class="text-center">{{ women.nombre_femme }}</p>
+            </div>
+            <div class="col col-homme ml-5 mr-5">
+                <p class="text-center">Nombre de modèles hommes</p>
+                <p class="text-center">{{ men.nombre_homme }}</p>
+            </div>
+            <div class="col col-femme">
+                <p class="text-center">Âge moyen des modèles femmes</p>
+                <p class="text-center">{{ averageWomen.age | number_format(0) }}</p>
+            </div>
+            <div class="col col-homme ml-5">
+                <p class="text-center">Âge moyen des modèles hommes</p>
+                <p class="text-center">{{ averageMen.age | number_format(0) }}</p>
+            </div>
+        </div>
+
+{% endblock %}

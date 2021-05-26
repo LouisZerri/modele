@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+
+    
+    <div class="myContainer">
+
+        {% include 'notifications/notification.html.twig' %}
+
+
+        <h2 class="title_women">Team</h2>
+
+        <table class="table">
+            <thead class="table_user">
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Adresse email</th>
+                    <th scope="col">Niveau d'accès</th>
+                    <th scole="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                     <tr>
+                        <th scope="row">{{ user.id }}</th>
+                        <td>{{ user.title }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.email }}</td>
+                        {% if user.roles == ['ROLE_ADMIN_GOLD'] %}
+                            <td>AdminGold</td>
+                        {% elseif user.roles == ['ROLE_ADMIN_SILVER'] %}
+                            <td>AdminSilver</td>
+                        {% elseif user.roles == ['ROLE_ADMIN_BRONZE'] %}
+                            <td>AdminBronze</td>
+                        {% endif %}
+                        <td>
+                            <div class="row">
+                                <div class="col">
+                                    <a class="badge badge-warning" style="color:white" href="{{ path('edit_utilisateur', {id : user.id}) }}"><i class="fa fa-pencil"></i></a>
+                                </div>
+                                <div class="col">
+                                    <form id="my_form" method="POST" action="{{ path('delete_utilisateur', {id: user.id }) }}" onsubmit="return confirm('Voulez-vous supprimer les données de cet utilisateur ?')">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}" />
+                                        <button class="badge badge-danger" style="color:white"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </div>
+                            </div>  
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col">
+                <div class="pagination">
+                    {{ knp_pagination_render(users) }}
+                </div> 
+            </div>
+            <div class="col">
+                <a class="btn btn-primary button_modele" href="{{ path('ajout_utilisateur') }}" role="button">Ajouter un utilisateur</a>
+            </div>
+        </div>
+
+        
+    
+    </div>
+
+{% endblock %}
