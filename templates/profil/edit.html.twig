@@ -62,9 +62,9 @@
 
             <div class="form-check">
                 {% if user.roles == ['ROLE_ADMIN_GOLD'] %}
-                    <input class="form-check-input" type="checkbox" name="roles" value="admin_gold" checked disabled>
+                    <input class="form-check-input" type="radio" name="roles" value="admin_gold" checked disabled>
                 {% else %}
-                    <input class="form-check-input" type="checkbox" name="roles" value="admin_gold" disabled>
+                    <input class="form-check-input" type="radio" name="roles" value="admin_gold" disabled>
                 {% endif %}
                 <label class="form-check-label" for="flexCheckChecked">
                     <strong>AdminGold</strong>
@@ -74,9 +74,9 @@
 
             <div class="form-check">
                 {% if user.roles == ['ROLE_ADMIN_SILVER'] %}
-                    <input class="form-check-input" type="checkbox" name="roles" value="admin_silver" checked disabled>
+                    <input class="form-check-input" type="radio" name="roles" value="admin_silver" checked disabled>
                 {% else %}
-                    <input class="form-check-input" type="checkbox" name="roles" value="admin_silver" disabled>
+                    <input class="form-check-input" type="radio" name="roles" value="admin_silver" disabled>
                 {% endif %}
                 <label class="form-check-label" for="flexCheckChecked">
                     <strong>AdminSilver</strong>
@@ -85,9 +85,9 @@
             </div>
             <div class="form-check">
                 {% if user.roles == ['ROLE_ADMIN_BRONZE'] %}
-                    <input class="form-check-input" type="checkbox" name="roles" value="admin_bronze" checked disabled>
+                    <input class="form-check-input" type="radio" name="roles" value="admin_bronze" checked disabled>
                 {% else %}
-                    <input class="form-check-input" type="checkbox" name="roles" value="admin_bronze" disabled>
+                    <input class="form-check-input" type="radio" name="roles" value="admin_bronze" disabled>
                 {% endif %}
                 <label class="form-check-label" for="flexCheckChecked">
                     <strong>AdminBronze</strong>
