@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\Women;
+use App\Repository\CountryRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -18,6 +21,7 @@ class ModeleWomenType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        
         $builder
             ->add('title', ChoiceType::class, [
                 'label' => 'Titre',
@@ -83,12 +87,10 @@ class ModeleWomenType extends AbstractType
                     'placeholder' => 'Ville'
                 ]
             ])
-            ->add('country', TextType::class, [
-                'required' => true,
+            ->add('country', EntityType::class, [
                 'label' => 'Pays',
-                'attr' => [
-                    'placeholder' => 'Pays'
-                ]
+                'class' => Country::class,
+                'choice_label' => 'name'
             ])
             ->add('native_language', TextType::class, [
                 'required' => true,

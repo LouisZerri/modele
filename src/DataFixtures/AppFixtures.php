@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Country;
 use App\Entity\Measurements;
 use App\Entity\Men;
 use App\Entity\Women;
@@ -16,8 +17,11 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create("fr_FR");
 
-        for($i = 0; $i < 15; $i++)
+        for($i = 0; $i < 5; $i++)
         {
+            $country = new Country();
+            $country->setName($faker->country);
+            $manager->persist($country);
             $men = new Men();
             $men->setTitle("Monsieur")
                 ->setFirstname($faker->firstNameMale)
@@ -28,7 +32,7 @@ class AppFixtures extends Fixture
                 ->setStreet($faker->streetAddress)
                 ->setZipCode($faker->postcode)
                 ->setCity($faker->city)
-                ->setCountry($faker->country)
+                ->setCountry($country)
                 ->setNativeLanguage("Français")
                 ->setSecondLanguage("Anglais")
                 ->setSize($faker->numberBetween(165, 185))
@@ -47,11 +51,15 @@ class AppFixtures extends Fixture
 
         }
 
-        for($j = 0; $j < 15; $j++)
+        for($j = 0; $j < 5; $j++)
         {
+            $country = new Country();
+            $country->setName($faker->country);
+
+            $manager->persist($country);
 
             $women = new Women();
-            $women->setTitle($faker->randomElement(['Mademoiselle', 'Madame']))
+            $women->setTitle('Madame')
                 ->setFirstname($faker->firstNameFemale)
                 ->setLastname($faker->lastName)
                 ->setDateOfBirth($faker->date('d-m-Y', 'now'))
@@ -60,7 +68,7 @@ class AppFixtures extends Fixture
                 ->setStreet($faker->streetAddress)
                 ->setZipCode($faker->postcode)
                 ->setCity($faker->city)
-                ->setCountry($faker->country)
+                ->setCountry($country)
                 ->setNativeLanguage("Français")
                 ->setSecondLanguage("Anglais")
                 ->setSize($faker->numberBetween(165, 185))
@@ -87,7 +95,7 @@ class AppFixtures extends Fixture
                 ->setLastname($faker->lastname)
                 ->setEmail($faker->email)
                 ->setPassword(password_hash("password", PASSWORD_BCRYPT))
-                ->setRoles($faker->randomElement(['AdminGold', 'AdminSilver', 'AdminBronze']));
+                ->setRoles($faker->randomElement(['ROLE_ADMIN_GOLD', 'ROLE_ADMIN_SILVER', 'ROLE_ADMIN_BRONZE']));
                 
             $manager->persist($user);
         }

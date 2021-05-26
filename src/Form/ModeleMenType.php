@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\Men;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -84,12 +86,10 @@ class ModeleMenType extends AbstractType
                     'placeholder' => 'Ville'
                 ]
             ])
-            ->add('country', TextType::class, [
-                'required' => true,
+            ->add('country', EntityType::class, [
                 'label' => 'Pays',
-                'attr' => [
-                    'placeholder' => 'Pays'
-                ]
+                'class' => Country::class,
+                'choice_label' => 'name'
             ])
             ->add('native_language', TextType::class, [
                 'required' => true,

@@ -9,6 +9,7 @@ use App\Entity\Women;
 use App\Form\ModeleMenType;
 use App\Form\ModeleSearchType;
 use App\Form\ModeleWomenType;
+use App\Repository\CountryRepository;
 use App\Repository\MenRepository;
 use App\Repository\WomenRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -91,7 +92,7 @@ class DashboardController extends AbstractController
      * @Route("/modele/femme/ajouter", name="ajout_modele_femme")
      * @param Request $request
      */
-    public function addWomenModele(Request $request)
+    public function addWomenModele(Request $request, CountryRepository $countries)
     {
         $user = $this->getUser();
         $women = new Women();
@@ -110,7 +111,7 @@ class DashboardController extends AbstractController
         return $this->render('dashboard/modele_femme/new.html.twig', [
             'user' => $user,
             'women' => $women,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
 
     }
@@ -120,12 +121,14 @@ class DashboardController extends AbstractController
      * @param Women $women
      * @param Request $request
      */
-    public function editWomenModele(Women $women, Request $request)
+    public function editWomenModele(Women $women, Request $request, CountryRepository $countries)
     {
         $user = $this->getUser();
 
         $form = $this->createForm(ModeleWomenType::class, $women);
         $form->handleRequest($request);
+
+        $countries = $countries->findByAsc();
         
         if($form->isSubmitted() && $form->isValid())
         {
@@ -137,7 +140,8 @@ class DashboardController extends AbstractController
         return $this->render('dashboard/modele_femme/edit.html.twig',[
             'user' => $user,
             'women' => $women,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'countries' => $countries
         ]);
 
     }

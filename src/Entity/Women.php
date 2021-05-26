@@ -71,7 +71,7 @@ class Women
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le numéro de téléphone est obligatoire")
-     * @Assert\Regex(pattern="/^0[1-68]([-. ]?[0-9]{2}){4}$/", message="Le numéro de téléphone n'est pas au bon format") 
+     * @Assert\Regex(pattern="/^0[1-78]([-. ]?[0-9]{2}){4}$/", message="Le numéro de téléphone n'est pas au bon format") 
      */
     private $phone_number;
 
@@ -106,14 +106,9 @@ class Women
      */
     private $city;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Le pays est obligatoire")
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="Le pays ne doit pas contenir des nombres"
-     * )
+     /**
+     * @ORM\ManyToOne(targetEntity=Country::class, inversedBy="women")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $country;
 
@@ -280,6 +275,7 @@ class Women
      */
     private $pictureFiles;
 
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -398,12 +394,12 @@ class Women
         return $this;
     }
 
-    public function getCountry(): ?string
+    public function getCountry(): ?Country
     {
         return $this->country;
     }
 
-    public function setCountry(string $country): self
+    public function setCountry(?Country $country): self
     {
         $this->country = $country;
 
