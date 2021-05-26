@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
     {
         $faker = Factory::create("fr_FR");
 
-        for($i = 0; $i < 5; $i++)
+        for($i = 0; $i < 15; $i++)
         {
             $country = new Country();
             $country->setName($faker->country);
@@ -32,7 +32,6 @@ class AppFixtures extends Fixture
                 ->setStreet($faker->streetAddress)
                 ->setZipCode($faker->postcode)
                 ->setCity($faker->city)
-                ->setCountry($country)
                 ->setNativeLanguage("Français")
                 ->setSecondLanguage("Anglais")
                 ->setSize($faker->numberBetween(165, 185))
@@ -43,7 +42,6 @@ class AppFixtures extends Fixture
                 ->setShoes($faker->numberBetween(35, 45))
                 ->setHairs($faker->randomElement(['Châtain', 'Brun', 'Blond', 'Roux']))
                 ->setEyes($faker->randomElement(['Bleus', 'Marrons', 'Verts']))
-                ->setFace($faker->randomElement(['Ovale', 'Carrée', 'Ronde', 'Triangle', 'Rectangle', 'Autre']))
                 ->setTatoos((int) $faker->boolean)
                 ->setPiercing((int) $faker->boolean);
                 
@@ -51,7 +49,7 @@ class AppFixtures extends Fixture
 
         }
 
-        for($j = 0; $j < 5; $j++)
+        for($j = 0; $j < 15; $j++)
         {
             $country = new Country();
             $country->setName($faker->country);
@@ -68,7 +66,6 @@ class AppFixtures extends Fixture
                 ->setStreet($faker->streetAddress)
                 ->setZipCode($faker->postcode)
                 ->setCity($faker->city)
-                ->setCountry($country)
                 ->setNativeLanguage("Français")
                 ->setSecondLanguage("Anglais")
                 ->setSize($faker->numberBetween(165, 185))
@@ -79,7 +76,6 @@ class AppFixtures extends Fixture
                 ->setShoes($faker->numberBetween(35, 45))
                 ->setHairs($faker->randomElement(['Châtain', 'Brun', 'Blond', 'Roux']))
                 ->setEyes($faker->randomElement(['Bleus', 'Marrons', 'Verts']))
-                ->setFace($faker->randomElement(['Ovale', 'Carrée', 'Ronde', 'Triangle', 'Rectangle', 'Autre']))
                 ->setTatoos((int) $faker->boolean)
                 ->setPiercing((int) $faker->boolean);
                 

@@ -90,6 +90,7 @@ class MenRepository extends ServiceEntityRepository
                 ->setParameter(':eyes', $search->getEyes());
         }
 
+        $query = $query->orderBy('w.id', 'ASC');
         return $query->getQuery();
            
     }

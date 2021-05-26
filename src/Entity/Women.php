@@ -223,17 +223,6 @@ class Women
     private $eyes;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="La forme du visage est obligatoire")
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="La forme du visage ne doit pas contenir des nombres"
-     * )
-     */
-    private $face;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $tatoos;
@@ -274,6 +263,12 @@ class Women
      * })
      */
     private $pictureFiles;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Face::class, inversedBy="women")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $face;
 
 
     public function __construct()
@@ -574,18 +569,6 @@ class Women
         return $this;
     }
 
-    public function getFace(): ?string
-    {
-        return $this->face;
-    }
-
-    public function setFace(string $face): self
-    {
-        $this->face = $face;
-
-        return $this;
-    }
-
     public function getTatoos(): ?bool
     {
         return $this->tatoos;
@@ -727,6 +710,18 @@ class Women
         }
         
         $this->pictureFiles = $pictureFiles;
+        return $this;
+    }
+
+    public function getFace(): ?Face
+    {
+        return $this->face;
+    }
+
+    public function setFace(?Face $face): self
+    {
+        $this->face = $face;
+
         return $this;
     }
 

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Country;
+use App\Entity\Face;
 use App\Entity\Women;
 use App\Repository\CountryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -155,17 +156,10 @@ class ModeleWomenType extends AbstractType
                 'required' => true,
                 'label' => 'Couleur des yeux'
             ])
-            ->add('face', ChoiceType::class, [
-                'label' => 'Forme du visage',
-                'required' => true,
-                'choices'  => [
-                    'Ovale' => 'Ovale', 
-                    'Carrée' => 'Carrée', 
-                    'Ronde' => 'Ronde', 
-                    'Triangle' => 'Triangle', 
-                    'Rectangle' => 'Rectangle', 
-                    'Autre' => 'Autre'
-                ]
+            ->add('face', EntityType::class, [
+                'label' => 'Pays',
+                'class' => Face::class,
+                'choice_label' => 'morphology'
             ])
             ->add('tatoos', CheckboxType::class, [
                 'label' => 'Tatouages',
