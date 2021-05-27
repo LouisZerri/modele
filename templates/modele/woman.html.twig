@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-md-4">
                 {% if woman.filename %}
-                    <img src="/images/modeles/{{ woman.filename }}" alt="card-img-top" style="height:200px;">
+                    <a href="/images/modeles/{{ woman.filename }}"><img src="/images/modeles/{{ woman.filename }}" alt="card-img-top" style="height:200px;"></a>
                 {% else %}
-                    <img src='/images/modeles/empty.png' alt="card-img-top" style="width: 200px; height:200px;">
+                    <a href="/images/modeles/empty.png"><img src='/images/modeles/empty.png' alt="card-img-top" style="width: 200px; height:200px;"></a>
                 {% endif %}
             </div>
             <div class="col-md-4">
@@ -95,7 +95,7 @@
             <div class="col">
                 {% if woman.updatedAt is not null %}
                     {% for picture in woman.pictures %}
-                        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" class="mr-5 mb-5">
+                         <a href="{{ vich_uploader_asset(picture, 'imageFile') }}"><img src="{{ vich_uploader_asset(picture, 'imageFile') }}" class="mr-5 mb-5"></a>
                     {% endfor %}
                 {% else %}
                     <h3>Aucune image</h3>
