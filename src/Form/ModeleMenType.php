@@ -114,7 +114,11 @@ class ModeleMenType extends AbstractType
             ])
             ->add('comments', TextareaType::class, [
                 'required' => false,
-                'label' => 'Commentaires'
+                'label' => 'Commentaires',
+                'attr' => [
+                    'cols' => '10',
+                    'rows' => '10'
+                ]
             ])
             ->add('size', IntegerType::class, [
                 'required' => true,

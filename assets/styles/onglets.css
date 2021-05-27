@@ -1,0 +1,65 @@
+.onglet-container
+{
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 50px;
+}
+
+
+.span-donnees
+{
+    color: #A48B6D;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border: solid whitesmoke;
+}
+
+.span-mensurations
+{
+    color: #A48B6D;
+    font-weight: bold;
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.span-langues
+{
+    color: #A48B6D;
+    font-weight: bold;
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.span-photos
+{
+    color: #A48B6D;
+    font-weight: bold;
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.donnees-personnels
+{
+    background-color: whitesmoke;
+    padding: 10px 10px 10px 10px;
+}
+
+
+.donnees-personnels > .form-group > .form-control
+{
+    width: 50%;
+}
+
+.mensurations, .langues-commentaires, .photos-modele
+{
+    background-color: whitesmoke;
+    padding: 10px 10px 10px 10px;
+    display: none;
+}

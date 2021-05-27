@@ -18,49 +18,57 @@ class ModeleSearchType extends AbstractType
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Prénom'
-                ]
+                    'placeholder' => 'Prénom',
+                    'class' => 'input-search'
+                ],
+                
             ])
             ->add('lastname', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Nom'
+                    'placeholder' => 'Nom',
+                    'class' => 'input-search'
                 ]
             ])
             ->add('dateOfBirth', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Date de naissance'
+                    'placeholder' => 'Date de naissance',
+                    'class' => 'input-search'
                 ]
             ])
             ->add('clothingSize', IntegerType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Taille de confection'
+                    'placeholder' => 'Taille de confection',
+                    'class' => 'input-search'
                 ]
             ])
             ->add('size', IntegerType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Taile en cm'
+                    'placeholder' => 'Taile en cm',
+                    'class' => 'input-search'
                 ]
             ])
             ->add('hairs', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Couleur des cheveux'
+                    'placeholder' => 'Couleur des cheveux',
+                    'class' => 'input-search'
                 ]
             ])
             ->add('eyes', TextType::class, [
                 'required' => false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Couleur des yeux'
+                    'placeholder' => 'Couleur des yeux',
+                    'class' => 'input-search'
                 ]
             ])
         ;
