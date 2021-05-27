@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+
+    
+    <div class="myContainer">
+    
+        {% include 'notifications/notification.html.twig' %}
+
+        <h1>Paramètres</h1>
+        <div class="container mt-5">
+            <form class="pt-5" action="{{ path('parametres')}}" method="post">
+            <div class="form-group">
+                <label for="">Ajouter un pays à la liste déroulante déjà définie</label>
+                <input style="width:100%" type="text" name="country" class="form-control" placeholder="Ajouter un pays">
+            </div>
+            <div class="form-group">
+                <label for="">Ajouter une morphologie du visage à la liste déroulante déjà définie</label>
+                <input style="width:100%" type="text" name="morphology" class="form-control" placeholder="Ajouter une morphologie du visage">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary button_modele" type="submit">Enregistrer</button>
+            </div>
+        </form>
+        </div>
+        
+    </div>
+
+{% endblock %}

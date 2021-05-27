@@ -13,7 +13,7 @@
     {% endif %}
 
     {% if is_granted('ROLE_ADMIN_GOLD') %}
-        <a href="#">Paramètres&nbsp;&nbsp;<i class="fa fa-cog" aria-hidden="true"></i></a>
+        <a href="{{ path('parametres') }}">Paramètres&nbsp;&nbsp;<i class="fa fa-cog" aria-hidden="true"></i></a>
     {% endif %}
     <a href="{{ path('security_logout') }}">Déconnexion&nbsp;&nbsp;<i class="fa fa-sign-out"></i></a>
 </div>
