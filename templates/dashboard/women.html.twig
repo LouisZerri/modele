@@ -55,6 +55,9 @@
                         <td>
                             <div class="row">
                                 <div class="col">
+                                    <a class="badge badge-info" style="color:white" href="{{ path('view_women_modele', {id : woman.id}) }}"><i class="fa fa-eye"></i></a>
+                                </div>
+                                <div class="col">
                                     {% if user.roles == ['ROLE_ADMIN_GOLD'] or user.roles == ['ROLE_ADMIN_SILVER'] %}
                                         <a class="badge badge-warning" style="color:white" href="{{ path('edit_modele_femme', {id : woman.id}) }}"><i class="fa fa-pencil"></i></a>
                                     {% else %}

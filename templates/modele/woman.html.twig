@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+
+    
+    <div class="myContainer">
+        <div class="row">
+            <div class="col-md-4">
+                {% if woman.filename %}
+                    <img src="/images/modeles/{{ woman.filename }}" alt="card-img-top" style="height:200px;">
+                {% else %}
+                    <img src='/images/modeles/empty.png' alt="card-img-top" style="width: 200px; height:200px;">
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <h1>{{ woman.title }}</h1>
+                <h2>{{ woman.firstname }} {{woman.lastname }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 mt-5">
+                <h2>Informations personnelles</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Date de naisance</th>
+                        <td>{{ woman.dateOfBirth }}</td>
+                    </tr>
+                    <tr>
+                        <th>Téléphone</th>
+                        <td>{{ woman.phoneNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ woman.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>{{ woman.street }} {{woman.zipcode }} {{ woman.city }} {{ woman.country.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Langue maternelle</th>
+                        <td>{{ woman.nativeLanguage }}</td>
+                    </tr>
+                    <tr>
+                        <th>Autre langues</th>
+                        <td>
+                            {{ woman.secondLanguage ? woman.secondLanguage  }} 
+                            {{ woman.thirdLanguage ? ', ' ~ woman.thirdLanguage }}
+                            {{ woman.fourthLanguage ? ', ' ~ woman.fourthLanguage }}
+                            {{ woman.fifthLanguage ? ', ' ~ woman.fifthLanguage }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col mt-5">
+                <h2>Mensurations</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Taille en cm</th>
+                        <td>{{ woman.size }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de poitrine</th>
+                        <td>{{ woman.chest }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de hanche</th>
+                        <td>{{ woman.hips }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de taille</th>
+                        <td>{{ woman.waistSize }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de confection</th>
+                        <td>{{ woman.clothingSize }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Pointure de chaussure</th>
+                        <td>{{ woman.shoes }}</td>
+                    </tr>
+                    <tr>
+                        <th>Caractéristiques faciales</th>
+                        <td>Cheveux : {{ woman.hairs }}, Yeux : {{ woman.eyes }}, Forme du visage : {{ woman.face.morphology }}, Tatouages : {{ woman.tatoos ? 'Oui' : 'Non' }}, Piercing : {{ woman.piercing ? 'Oui' : 'Non' }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <h2 class="mt-5 mb-5">Gallerie de photos et commentaires</h2>
+        <div class="row">
+            <div class="col">
+                {% if woman.updatedAt is not null %}
+                    {% for picture in woman.pictures %}
+                        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" class="mr-5 mb-5">
+                    {% endfor %}
+                {% else %}
+                    <h3>Aucune image</h3>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                {% if woman.comments is not null %}
+                    {{ woman.comments }}
+                {% else %}
+                    <h3>Aucun commentaire</h3>
+                {% endif %}
+            </div>
+        </div>
+     
+    </div>
+
+{% endblock %}

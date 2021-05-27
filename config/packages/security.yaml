@@ -30,6 +30,7 @@ security:
     
     access_control:
         - { path: ^/dashboard/team, roles: ROLE_ADMIN_GOLD }
+        - { path: ^/parametres, roles: ROLE_ADMIN_GOLD }
         - { path: ^/team/utilisateur/*, roles: ROLE_ADMIN_GOLD }
         - { path: ^/mon-profil, roles: ['ROLE_ADMIN_SILVER', 'ROLE_ADMIN_BRONZE']}
         - { path: ^/mon-profil/editer, roles: ['ROLE_ADMIN_SILVER', 'ROLE_ADMIN_BRONZE']}

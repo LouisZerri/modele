@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% include 'layout/navbar.html.twig' %}
+    {% include 'layout/sidebar.html.twig' %}
+
+
+    
+    <div class="myContainer">
+        <div class="row">
+            <div class="col-md-4">
+                {% if man.filename %}
+                    <img src="/images/modeles/{{ man.filename }}" alt="card-img-top" style="height:200px;">
+                {% else %}
+                    <img src='/images/modeles/empty.png' alt="card-img-top" style="width: 200px; height:200px;">
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <h1>{{ man.title }}</h1>
+                <h2>{{ man.firstname }} {{man.lastname }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 mt-5">
+                <h2>Informations personnelles</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Date de naisance</th>
+                        <td>{{ man.dateOfBirth }}</td>
+                    </tr>
+                    <tr>
+                        <th>Téléphone</th>
+                        <td>{{ man.phoneNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ man.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>{{ man.street }} {{man.zipcode }} {{ man.city }} {{ man.country.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Langue maternelle</th>
+                        <td>{{ man.nativeLanguage }}</td>
+                    </tr>
+                    <tr>
+                        <th>Autre langues</th>
+                        <td>
+                            {{ man.secondLanguage ? man.secondLanguage  }} 
+                            {{ man.thirdLanguage ? ', ' ~ man.thirdLanguage }}
+                            {{ man.fourthLanguage ? ', ' ~ man.fourthLanguage }}
+                            {{ man.fifthLanguage ? ', ' ~ man.fifthLanguage }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col mt-5">
+                <h2>Mensurations</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Taille en cm</th>
+                        <td>{{ man.size }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de poitrine</th>
+                        <td>{{ man.chest }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de hanche</th>
+                        <td>{{ man.hips }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de taille</th>
+                        <td>{{ man.waistSize }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Tour de confection</th>
+                        <td>{{ man.clothingSize }} cm</td>
+                    </tr>
+                    <tr>
+                        <th>Pointure de chaussure</th>
+                        <td>{{ man.shoes }}</td>
+                    </tr>
+                    <tr>
+                        <th>Caractéristiques faciales</th>
+                        <td>Cheveux : {{ man.hairs }}, Yeux : {{ man.eyes }}, Forme du visage : {{ man.face.morphology }}, Tatouages : {{ man.tatoos ? 'Oui' : 'Non' }}, Piercing : {{ man.piercing ? 'Oui' : 'Non' }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <h2 class="mt-5 mb-5">Gallerie de photos et commentaires</h2>
+        <div class="row">
+            <div class="col">
+                {% if man.updated_at is not null %}
+                    {% for picture in man.pictures %}
+                        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" class="mr-5 mb-5">
+                    {% endfor %}
+                {% else %}
+                    <h3>Aucune image</h3>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                {% if man.comments is not null %}
+                    {{ man.comments }}
+                {% else %}
+                    <h3>Aucun commentaire</h3>
+                {% endif %}
+            </div>
+        </div>
+     
+    </div>
+
+{% endblock %}

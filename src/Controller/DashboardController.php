@@ -117,7 +117,7 @@ class DashboardController extends AbstractController
     }
 
     /**
-     * @Route("/modele/femme/{id}", name="edit_modele_femme", methods="GET|POST")
+     * @Route("/modele/femme/editer/{id}", name="edit_modele_femme", methods="GET|POST")
      * @param Women $women
      * @param Request $request
      */
@@ -147,7 +147,7 @@ class DashboardController extends AbstractController
     }
 
     /**
-     * @Route("/modele/femme/{id}", name="delete_modele_femme", methods="DELETE")
+     * @Route("/modele/femme/supprimer/{id}", name="delete_modele_femme", methods="DELETE")
      * @param Women $women
      * @param Request $request
      * @return RedirectResponse
@@ -214,8 +214,8 @@ class DashboardController extends AbstractController
     }
 
     /**
-     * @Route("/modele/homme/{id}", name="edit_modele_homme", methods="GET|POST")
-     * @param Women $women
+     * @Route("/modele/homme/editer/{id}", name="edit_modele_homme", methods="GET|POST")
+     * @param Men $men
      * @param Request $request
      */
     public function editMenModele(Men $men, Request $request)
@@ -242,8 +242,8 @@ class DashboardController extends AbstractController
 
 
     /**
-     * @Route("/modele/homme/{id}", name="delete_modele_homme", methods="DELETE")
-     * @param Women $women
+     * @Route("/modele/homme/supprimer/{id}", name="delete_modele_homme", methods="DELETE")
+     * @param Men $men
      * @param Request $request
      * @return RedirectResponse
      */
