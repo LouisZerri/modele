@@ -7,7 +7,7 @@
     {{ form_start(form) }}
         <div class="donnees-personnels">
             <div class="row">
-                <div class="col">
+                <div class="col mt-4 ml-4">
                     {{ form_row(form.title) }}
                     {{ form_row(form.firstname) }}
                     {{ form_row(form.lastname) }}
@@ -15,11 +15,13 @@
                     {{ form_row(form.phone_number) }}
                     {{ form_row(form.email) }}
                 </div>
-                <div class="col">
+                <div class="col col-address ml-4">
                     {{ form_row(form.street) }}
                     {{ form_row(form.zip_code) }}
                     {{ form_row(form.city) }}
                     {{ form_row(form.country) }}
+                </div>
+                <div class="col col-image ml-4">
                     {{ form_row(form.imageFile) }}
                 </div>
             </div>
@@ -27,7 +29,7 @@
 
         <div class="mensurations">
             <div class="row">
-                <div class="col">
+                <div class="col col mt-4 ml-4">
                     {{ form_row(form.size) }}
                     {{ form_row(form.chest) }}
                     {{ form_row(form.hips) }}
@@ -35,7 +37,7 @@
                     {{ form_row(form.clothing_size) }}
                     {{ form_row(form.shoes) }}
                 </div>
-                <div class="col">
+                <div class="col col mt-4 ml-4">
                     {{ form_row(form.hairs) }}
                     {{ form_row(form.eyes) }}
                     {{ form_row(form.face) }}
@@ -47,14 +49,14 @@
 
         <div class="langues-commentaires">
             <div class="row">
-                <div class="col">
+                <div class="col col mt-4 ml-4">
                     {{ form_row(form.native_language) }}
                     {{ form_row(form.second_language) }}
                     {{ form_row(form.third_language) }}
                     {{ form_row(form.fourth_language) }}
                     {{ form_row(form.fifth_language) }}
                 </div>
-                <div class="col">
+                <div class="col col mt-4 ml-4">
                     {{ form_row(form.comments) }}
                 </div>
             </div>

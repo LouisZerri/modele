@@ -30,88 +30,117 @@ class ModeleWomenType extends AbstractType
                 'choices'  => [
                     'Madame' => 'Madame', 
                     'Mademoiselle' => 'Mademoiselle', 
+                ],
+                'attr' => [
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('firstname', TextType::class, [
                 'required' => true,
                 'label' => 'Prénom',
                 'attr' => [
-                    'placeholder' => 'Prénom du modèle'
+                    'placeholder' => 'Prénom du modèle',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('lastname', TextType::class, [
                 'required' => true,
                 'label' => 'Nom',
                 'attr' => [
-                    'placeholder' => 'Nom du modèle'
+                    'placeholder' => 'Nom du modèle',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('date_of_birth', TextType::class, [
                 'required' => true,
                 'label' => 'Date de naissance',
                 'attr' => [
-                    'placeholder' => 'JJ-MM-AAAA'
+                    'placeholder' => 'JJ-MM-AAAA',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('phone_number', TextType::class, [
                 'required' => true,
                 'label' => 'N° de téléphone',
                 'attr' => [
-                    'placeholder' => 'Téléphone'
+                    'placeholder' => 'Téléphone',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('email', EmailType::class, [
                 'required' => true,
                 'label' => 'Adresse e-mail',
                 'attr' => [
-                    'placeholder' => 'Email du modèle'
+                    'placeholder' => 'Email du modèle',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('street', TextType::class, [
                 'required' => true,
                 'label' => 'N° et rue',
                 'attr' => [
-                    'placeholder' => 'Adresse du modèle'
+                    'placeholder' => 'Adresse du modèle',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('zip_code', TextType::class, [
                 'required' => true,
                 'label' => 'Code postal',
                 'attr' => [
-                    'placeholder' => 'Code postal'
+                    'placeholder' => 'Code postal',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('city', TextType::class, [
                 'required' => true,
                 'label' => 'Localité',
                 'attr' => [
-                    'placeholder' => 'Ville'
+                    'placeholder' => 'Ville',
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('country', EntityType::class, [
                 'label' => 'Pays',
                 'class' => Country::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('native_language', TextType::class, [
                 'required' => true,
-                'label' => 'Langue maternelle'
+                'label' => 'Langue maternelle',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('second_language', TextType::class, [
                 'required' => false,
-                'label' => 'Deuxième langue'
+                'label' => 'Deuxième langue',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('third_language', TextType::class, [
                 'required' => false,
-                'label' => 'Troisième langue'
+                'label' => 'Troisième langue',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('fourth_language', TextType::class, [
                 'required' => false,
-                'label' => 'Quatrième langue'
+                'label' => 'Quatrième langue',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('fifth_language', TextType::class, [
                 'required' => false,
-                'label' => 'Cinquième langue'
+                'label' => 'Cinquième langue',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('comments', TextareaType::class, [
                 'required' => false,
@@ -123,27 +152,45 @@ class ModeleWomenType extends AbstractType
             ])
             ->add('size', IntegerType::class, [
                 'required' => true,
-                'label' => 'Taille en cm'
+                'label' => 'Taille en cm',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('chest', IntegerType::class, [
                 'required' => true,
-                'label' => 'Tour de poitrine'
+                'label' => 'Tour de poitrine',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('hips', IntegerType::class, [
                 'required' => true,
-                'label' => 'Tour de hanches'
+                'label' => 'Tour de hanches',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('waist_size', IntegerType::class, [
                 'required' => true,
-                'label' => 'Tour de taille'
+                'label' => 'Tour de taille',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('clothing_size', IntegerType::class, [
                 'required' => true,
-                'label' => 'Taille de confection'
+                'label' => 'Taille de confection',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('shoes', IntegerType::class, [
                 'required' => true,
-                'label' => 'Pointure'
+                'label' => 'Pointure',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('hairs', ChoiceType::class, [
                 'label' => 'Couleur des cheveux',
@@ -154,28 +201,40 @@ class ModeleWomenType extends AbstractType
                     'Blond' => 'Blond',
                     'Roux' => 'Roux'
 
+                ],
+                'attr' => [
+                    'class' => 'form-control-sm'
                 ]
             ])
             ->add('eyes', TextType::class, [
                 'required' => true,
-                'label' => 'Couleur des yeux'
+                'label' => 'Couleur des yeux',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('face', EntityType::class, [
-                'label' => 'Pays',
+                'label' => 'Morphologie du visage',
                 'class' => Face::class,
-                'choice_label' => 'morphology'
+                'choice_label' => 'morphology',
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('tatoos', CheckboxType::class, [
                 'label' => 'Tatouages',
-                'required' => false
+                'required' => false,
             ])
             ->add('piercing', CheckboxType::class, [
                 'label' => 'Piercing',
-                'required' => false
+                'required' => false,
             ])
             ->add('imageFile', FileType::class, [
                 'label' => "Ajouter une photo de profil",
-                'required' => false
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control-sm'
+                ]
             ])
             ->add('pictureFiles', FileType::class, [
                 'label' => "Ajouter des photos au modèle (4 photos max)",
