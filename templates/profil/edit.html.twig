@@ -8,7 +8,7 @@
 
     <div class="myContainer">
 
-        <h1 class="mb-5">Modifier mon profil</h1>
+        <h1 class="mb-5">Modifier un utilisateur</h1>
         {% if erreurs is not empty %}
 		    <div class="alert alert-danger">
 			    <p>Vous n'avez pas rempli le formulaire correctement : </p>
@@ -19,88 +19,124 @@
                 </ul>
 		    </div>
         {% endif %}
-
-        <form action="" method="post">
-            <div class="form-group">
-                <label for="">Titre</label>
-                {% if user.title == 'Madame' %}
-                    <select name="title" class="form-control">
-                        <option value="Madame" selected>Madame</option>
-                        <option value="Mademoiselle">Mademoiselle</option>
-                        <option value="Monsieur">Monsieur</option>
-                    </select>
-                {% elseif user.title == 'Mademoiselle' %}
-                    <select name="title" class="form-control">
-                        <option value="Madame">Madame</option>
-                        <option value="Mademoiselle" selected>Mademoiselle</option>
-                        <option value="Monsieur">Monsieur</option>
-                    </select>
-                {% elseif user.title == 'Monsieur' %}
-                    <select name="title" class="form-control">
-                        <option value="Madame">Madame</option>
-                        <option value="Mademoiselle">Mademoiselle</option>
-                        <option value="Monsieur" selected>Monsieur</option>
-                    </select>
-                {% endif %}
-            </div>
-            <div class="form-group">	
-                <label for="">Prénom</label>
-                <input style="width:100%" type="text" placeholder="Prénom" name="firstname" class="form-control" value="{{ user.firstname }}">
-            </div>
-            <div class="form-group">	
-                <label for="">Nom</label>
-                <input style="width:100%" type="text" placeholder="Nom" name="lastname" class="form-control" value="{{ user.lastname }}">
-            </div>
-            <div class="form-group">	
-                <label for="">Adresse email</label>
-                <input style="width:100%" type="email" placeholder="Adresse email" name="email" class="form-control" value="{{ user.email }}">
-            </div>
-            <div class="form-group">	
-                <label for="">Mot de passe</label>
-                <input style="width:100%" type="password" placeholder="Mot de passe" name="password" class="form-control">
-            </div>
-
-            <div class="form-check">
-                {% if user.roles == ['ROLE_ADMIN_GOLD'] %}
-                    <input class="form-check-input" type="radio" name="roles" value="admin_gold" checked disabled>
-                {% else %}
-                    <input class="form-check-input" type="radio" name="roles" value="admin_gold" disabled>
-                {% endif %}
-                <label class="form-check-label" for="flexCheckChecked">
-                    <strong>AdminGold</strong>
-                    <p>Cet utilisateur pourra consulter le profil de tous les modèles et de tous les utilisateurs. Il pourra aussi en ajouter, modifier ou supprimer</p>
-                </label>
-            </div>
-
-            <div class="form-check">
-                {% if user.roles == ['ROLE_ADMIN_SILVER'] %}
-                    <input class="form-check-input" type="radio" name="roles" value="admin_silver" checked disabled>
-                {% else %}
-                    <input class="form-check-input" type="radio" name="roles" value="admin_silver" disabled>
-                {% endif %}
-                <label class="form-check-label" for="flexCheckChecked">
-                    <strong>AdminSilver</strong>
-                    <p>Cet utilisateur pourra consulter le profil de tous les modèles et ainsi en ajouter, modifier ou supprimer. Il pourra aussi modifier son compte utilisateur</p>
-                </label>
-            </div>
-            <div class="form-check">
-                {% if user.roles == ['ROLE_ADMIN_BRONZE'] %}
-                    <input class="form-check-input" type="radio" name="roles" value="admin_bronze" checked disabled>
-                {% else %}
-                    <input class="form-check-input" type="radio" name="roles" value="admin_bronze" disabled>
-                {% endif %}
-                <label class="form-check-label" for="flexCheckChecked">
-                    <strong>AdminBronze</strong>
-                    <p>Cet utilisateur pourra consulter le profil de tous les modèles et modifier son compte</p>
-                </label>
-            </div>
+        <span class="span-utilisateurs">Utilisateurs</span>
+        <div class="donnees-utilisateurs">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col">
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <label for="">Titre</label>
+                            </div>
+                            {% if user.title == 'Madame' %}
+                                <div class="col-sm-3">
+                                    <select name="title" class="form-control form-control-sm">
+                                        <option value="Madame" selected>Madame</option>
+                                        <option value="Mademoiselle">Mademoiselle</option>
+                                        <option value="Monsieur">Monsieur</option>
+                                    </select>
+                                </div>
+                            {% elseif user.title == 'Mademoiselle' %}
+                                <div class="col-sm-3">
+                                    <select name="title" class="form-control form-control-sm">
+                                        <option value="Madame">Madame</option>
+                                        <option value="Mademoiselle" selected>Mademoiselle</option>
+                                        <option value="Monsieur">Monsieur</option>
+                                    </select>
+                                </div>
+                            {% elseif user.title == 'Monsieur' %}
+                                <div class="col-sm-3">
+                                    <select name="title" class="form-control form-control-sm">
+                                        <option value="Madame">Madame</option>
+                                        <option value="Mademoiselle">Mademoiselle</option>
+                                        <option value="Monsieur" selected>Monsieur</option>
+                                    </select>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <label for="">Prénom</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="text" placeholder="Prénom" name="firstname" class="form-control form-control-sm" value="{{ user.firstname }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <label for="">Nom</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="text" placeholder="Nom" name="lastname" class="form-control form-control-sm" value="{{ user.lastname }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2">	
+                                <label for="">Adresse email</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="email" placeholder="Adresse email" name="email" class="form-control form-control-sm" value="{{ user.email }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <label for="">Mot de passe</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="password" placeholder="Mot de passe" name="password" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col mt-5">
+                         <div class="form-check">
+                            {% if user.roles == ['ROLE_ADMIN_GOLD'] %}
+                                <input class="form-check-input" type="radio" name="roles" value="admin_gold" checked disabled>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="roles" value="admin_gold" disabled>
+                            {% endif %}
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <strong>AdminGold</strong>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et de tous les utilisateurs. Il pourra aussi en ajouter, modifier ou supprimer</p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if user.roles == ['ROLE_ADMIN_SILVER'] %}
+                                <input class="form-check-input" type="radio" name="roles" value="admin_silver" checked disabled>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="roles" value="admin_silver" disabled>
+                            {% endif %}
+                            <label class="form-check-label" for="flexCheckChecked">
+                                <strong>AdminSilver</strong>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et ainsi en ajouter, modifier ou supprimer. Il pourra aussi modifier son compte utilisateur</p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            {% if user.roles == ['ROLE_ADMIN_BRONZE'] %}
+                                <input class="form-check-input" type="radio" name="roles" value="admin_bronze" checked disabled>
+                            {% else %}
+                                <input class="form-check-input" type="radio" name="roles" value="admin_bronze" disabled>
+                            {% endif %}
+                            <label class="form-check-label" for="flexCheckChecked">
+                                <strong>AdminBronze</strong>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et modifier son compte</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div> 
+        </div>
 
             <div class="col">
                 <div class="form-group">
                     <button class="btn btn-primary button_modele">Enrgistrer</button>
                 </div>
             </div>
-            
+
         </form>
 
 
@@ -108,7 +144,7 @@
 
         
 
-        <a href="{{ path('profil') }}" role="button" class="btn btn-primary button_modele_delete">Annuler</a>
+        <a href="{{ path('team') }}" role="button" class="btn btn-primary button_modele_delete">Annuler</a>
 
     </div>
     

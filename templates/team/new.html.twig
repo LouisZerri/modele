@@ -19,63 +19,86 @@
                 </ul>
 		    </div>
         {% endif %}
-
-        <form action="" method="post">
-            <div class="form-group">
-                <label for="">Titre</label>
-                <select name="title" class="form-control">
-                    <option value="Madame">Madame</option>
-                    <option value="Mademoiselle">Mademoiselle</option>
-                    <option value="Monsieur">Monsieur</option>
-                </select>
-            </div>
-            <div class="form-group">	
-                <label for="">Prénom</label>
-                <input style="width:100%" type="text" placeholder="Prénom" name="firstname" class="form-control">
-            </div>
-            <div class="form-group">	
-                <label for="">Nom</label>
-                <input style="width:100%" type="text" placeholder="Nom" name="lastname" class="form-control">
-            </div>
-            <div class="form-group">	
-                <label for="">Adresse email</label>
-                <input style="width:100%" type="email" placeholder="Adresse email" name="email" class="form-control">
-            </div>
-            <div class="form-group">	
-                <label for="">Mot de passe</label>
-                <input style="width:100%" type="password" placeholder="Mot de passe" name="password" class="form-control">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="roles" value="admin_gold">
-                <label class="form-check-label" for="flexCheckDefault">
-                    <strong>AdminGold</strong>
-                    <p>Cet utilisateur pourra consulter le profil de tous les modèles et de tous les utilisateurs. Il pourra aussi en ajouter, modifier ou supprimé</p>
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="roles" value="admin_silver">
-                <label class="form-check-label" for="flexCheckChecked">
-                    <strong>AdminSilver</strong>
-                    <p>Cet utilisateur pourra consulter le profil de tous les modèles et ainsi en ajouter, modifier ou supprimé. Il pourra aussi modifier son compte utilisateur</p>
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="roles" value="admin_bronze">
-                <label class="form-check-label" for="flexCheckChecked">
-                    <strong>AdminBronze</strong>
-                    <p>Cet utilisateur pourra consulter le profil de tous les modèles et modifier son compte</p>
-                </label>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <button class="btn btn-primary button_modele">Enrgistrer</button>
+        <span class="span-utilisateurs">Utilisateurs</span>
+        <div class="donnees-utilisateurs">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col">
+                        <div class="form-group row">
+                            <label class="col-sm-2" for="">Titre</label>
+                            <div class="col-sm-3">
+                                <select name="title" class="form-control form-control-sm">
+                                    <option value="Madame">Madame</option>
+                                    <option value="Mademoiselle">Mademoiselle</option>
+                                    <option value="Monsieur">Monsieur</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">	
+                            <label class="col-sm-2" for="">Prénom</label>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="text" placeholder="Prénom" name="firstname" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                        <div class="form-group row">	
+                            <label class="col-sm-2" for="">Nom</label>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="text" placeholder="Nom" name="lastname" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                        <div class="form-group row">	
+                            <label class="col-sm-2" for="">Adresse email</label>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="email" placeholder="Adresse email" name="email" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                        <div class="form-group row">	
+                            <label class="col-sm-2" for="">Mot de passe</label>
+                            <div class="col-sm-3">
+                                <input style="width:100%" type="password" placeholder="Mot de passe" name="password" class="form-control form-control-sm mb-5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10"></div>
                 </div>
-            </div>
-            
-        </form>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                         <div class="form-check">
+                            <input class="form-check-input" type="radio" name="roles" value="admin_gold" required>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <strong>AdminGold</strong>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et de tous les utilisateurs. Il pourra aussi en ajouter, modifier ou supprimé</p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="roles" value="admin_silver" required>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                <strong>AdminSilver</strong>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et ainsi en ajouter, modifier ou supprimé. Il pourra aussi modifier son compte utilisateur</p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="roles" value="admin_bronze" required>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                <strong>AdminBronze</strong>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et modifier son compte</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>    
+        </div>
 
 
-
+                <div class="col">
+                    <div class="form-group">
+                        <button class="btn btn-primary button_modele">Enrgistrer</button>
+                    </div>
+                </div>
+                
+            </form>
 
         
 
