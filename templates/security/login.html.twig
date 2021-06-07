@@ -17,21 +17,24 @@
         </div>  
     {% endif %}
 
-    <div class="container login">
-        <div class="jumbotron">
-            <h1 class="titre-login mb-5">GESTION BASE DE DONNÉES DES MODELES</h1>
-            <form action="{{ path('security_login') }}" method="post">
-                <div class="form-group">
-                    <label for="">Entrer votre adresse email</label>
-                    <input style="width: 100%" type="text" name="_username" placeholder="Entrer votre adresse email" class="form-control">
+    <div class="container login text-center">
+        <h1 class="titre-login mb-5">GESTION BASE DE DONNÉES DES MODELES</h1>
+        <form action="{{ path('security_login') }}" method="post">
+            <div class="form-group">
+                <input style="width: 100%" type="text" name="_username" placeholder="Entrer votre adresse email" class="form-control">
+            </div>
+            <div class="input-group mt-5" id="show_hide_password">
+                <input type="password" name="_password" placeholder="Entrer votre mot de passe" class="form-control">
+                <div class="input-group-append">
+                    <span class="input-group-text show-password" id="basic-addon2"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
                 </div>
-                <div class="form-group mt-5 login-input">
-                    <label for="">Entrer votre mot de passe</label>
-                    <input style="width: 100%" type="password" name="_password" placeholder="Entrer votre mot de passe" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Se connecter</button>
-            </form>
-        </div>
+            </div>
+            <button type="submit" class="btn btn-secondary button_login mt-3">Se connecter</button>
+        </form>
     </div>
+
+
+
+
 {% endblock %}
 

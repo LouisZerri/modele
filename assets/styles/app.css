@@ -104,6 +104,18 @@ tbody
     float: right;
 }
 
+.button_login
+{
+    background-color: #A48B6D;
+    border-color: #A48B6D;
+}
+
+.button_modele:hover
+{
+    background-color: #808080;
+    border-color: #808080;
+}
+
 .button_modele_delete
 {
     background-color: #808080;
@@ -155,7 +167,8 @@ tbody
 
 .login
 {
-    margin-top: 150px;
+    margin-top: 200px;
+    width: 25%;
 }
 
 .form-control-sm
@@ -181,5 +194,9 @@ tbody
     font-size: 25px;
 }
 
-
+.show-password, .show-password:hover
+{
+    color:#333;
+    cursor: pointer;
+}
 
