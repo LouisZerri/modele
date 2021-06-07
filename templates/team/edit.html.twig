@@ -31,7 +31,7 @@
                             </div>
                             {% if currentUser.title == 'Madame' %}
                                 <div class="col-sm-3">
-                                    <select name="title" class="form-control form-control-sm">
+                                    <select style="width:100%" name="title" class="form-control form-control-sm">
                                         <option value="Madame" selected>Madame</option>
                                         <option value="Mademoiselle">Mademoiselle</option>
                                         <option value="Monsieur">Monsieur</option>
@@ -39,7 +39,7 @@
                                 </div>
                             {% elseif currentUser.title == 'Mademoiselle' %}
                                 <div class="col-sm-3">
-                                    <select name="title" class="form-control form-control-sm">
+                                    <select  style="width:100%" name="title" class="form-control form-control-sm">
                                         <option value="Madame">Madame</option>
                                         <option value="Mademoiselle" selected>Mademoiselle</option>
                                         <option value="Monsieur">Monsieur</option>
@@ -47,7 +47,7 @@
                                 </div>
                             {% elseif currentUser.title == 'Monsieur' %}
                                 <div class="col-sm-3">
-                                    <select name="title" class="form-control form-control-sm">
+                                    <select style="width:100%" name="title" class="form-control form-control-sm">
                                         <option value="Madame">Madame</option>
                                         <option value="Mademoiselle">Mademoiselle</option>
                                         <option value="Monsieur" selected>Monsieur</option>
@@ -92,6 +92,7 @@
                 </div>
                 <div class="row">
                     <div class="col"></div>
+                    <label for="">Niveau d'accès</label>
                     <div class="col mt-5">
                          <div class="form-check">
                             {% if currentUser.roles == ['ROLE_ADMIN_GOLD'] %}
@@ -123,7 +124,7 @@
                             {% endif %}
                             <label class="form-check-label" for="flexCheckChecked">
                                 <strong>AdminBronze</strong>
-                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et modifier son compte</p>
+                                <p>Cet utilisateur pourra consulter le profil de tous les modèles et modifier son compte utilisateur</p>
                             </label>
                         </div>
                     </div>

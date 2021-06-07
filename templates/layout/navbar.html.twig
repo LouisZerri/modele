@@ -3,12 +3,14 @@
     <nav class="navbar navbar-expand-lg fixed-top navigation">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav navbar-center">
-                <span class="modele">Gestion base de données des modèles</span>
+                {% if user != null %}
+                    <span class="modele">GESTION BASE DE DONNÉES DES MODELES</span>
+                {% endif %}
             </ul>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto hello">
                     {% if user != null %}
-                        <span id="menu-burger"><i class="fa fa-user"></i>&nbsp;&nbsp;Bienvenue {{ app.user.firstname}} {{ app.user.lastname }}</span>
+                        <span id="menu-burger"><i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;Bienvenue {{ app.user.firstname}} {{ app.user.lastname }}</span>
                     {% endif %}
                 </ul>
             </div>
